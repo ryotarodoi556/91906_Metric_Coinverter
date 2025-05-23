@@ -85,6 +85,12 @@ class Converter:
         self.answer_label.config(fg="#084C99")
         self.input_entry.config(bg="white")
 
+        if len(user_input.replace('.', '', 1)) > 7:
+            self.answer_label.config(text="Input too long (max 7 digits)",
+                                     fg="#9C0000")
+            self.input_entry.config(bg="#F4CCCC")
+            return
+
         try:
             value = float(user_input)
             self.convert(conversion_type, value)
